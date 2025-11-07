@@ -1,0 +1,24 @@
+{
+  "name": "saucedemo-cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfrunza/saucedemo-cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfrunza/saucedemo-cypress/issues"
+  },
+  "homepage": "https://github.com/alfrunza/saucedemo-cypress#readme",
+  "description": "",
+  "dependencies": {
+    "cypress": "^15.6.0"
+  }
+}
