@@ -3,31 +3,32 @@ class LoginPage {
     usernameInput: () => cy.get('[data-test="username"]'),
     passwordInput: () => cy.get('[data-test="password"]'),
     loginButton: () => cy.get('[data-test="login-button"]'),
+    errorMessage: () => cy.get('[data-test="error"]'),
   };
 
   enterUsername(username) {
-    this.elements
+    return this.elements
       .usernameInput()
       .click()
       .then(() => this.elements.usernameInput().clear().type(username));
   }
 
   enterPassword(password) {
-    this.elements
+    return this.elements
       .passwordInput()
       .click()
       .then(() => this.elements.passwordInput().clear().type(password));
   }
 
   clickLogin() {
-    this.elements.loginButton().click();
+    return this.elements.loginButton().click();
   }
 
   login(username, password) {
-    this.enterUsername(username);
-    this.enterPassword(password);
-    this.clickLogin();
+    return this.enterUsername(username)
+      .then(() => this.enterPassword(password))
+      .then(() => this.clickLogin());
   }
 }
 
-module.exports = new LoginPage();
+export default new LoginPage();
