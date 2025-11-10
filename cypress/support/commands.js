@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import LoginPage from "../pageobjects/LoginPage.js";
+
+Cypress.Commands.add("login", (username, password) => {
+  cy.session([username, password], () => {
+    cy.visit("https://www.saucedemo.com/");
+    LoginPage.login(username, password);
+
+    cy.url().should("include", "/inventory.html");
+  });
+});
