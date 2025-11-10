@@ -1,4 +1,5 @@
 class LoginPage {
+  // Define selectors
   elements = {
     usernameInput: () => cy.get('[data-test="username"]'),
     passwordInput: () => cy.get('[data-test="password"]'),
@@ -6,6 +7,7 @@ class LoginPage {
     errorMessage: () => cy.get('[data-test="error"]'),
   };
 
+  // Method to enter username
   enterUsername(username) {
     return this.elements
       .usernameInput()
@@ -13,6 +15,7 @@ class LoginPage {
       .then(() => this.elements.usernameInput().clear().type(username));
   }
 
+  // Method to enter password
   enterPassword(password) {
     return this.elements
       .passwordInput()
@@ -20,10 +23,12 @@ class LoginPage {
       .then(() => this.elements.passwordInput().clear().type(password));
   }
 
+  // Method to click login button
   clickLogin() {
     return this.elements.loginButton().click();
   }
 
+  // Method to perform login
   login(username, password) {
     return this.enterUsername(username)
       .then(() => this.enterPassword(password))

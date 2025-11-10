@@ -26,6 +26,7 @@
 
 import LoginPage from "../pageobjects/LoginPage.js";
 
+// Custom command to perform login using session caching
 Cypress.Commands.add("login", (username, password) => {
   cy.session([username, password], () => {
     cy.visit("https://www.saucedemo.com/");
